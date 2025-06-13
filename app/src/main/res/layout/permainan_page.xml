@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="691dp"
+        android:layout_height="1043dp"
+        app:srcCompat="@mipmap/rumput"
+        tools:layout_editor_absoluteX="-144dp"
+        tools:layout_editor_absoluteY="-132dp" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="416dp"
+        android:layout_height="670dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="109dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginTop="46dp"
+                android:text="Level 1"
+                android:textSize="28dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="153dp"
+                android:layout_height="165dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="53dp"
+                android:layout_marginBottom="85dp"
+                app:srcCompat="@mipmap/karakter_foreground" />
+
+            <ImageView
+                android:id="@+id/jejak4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="131dp"
+                android:layout_marginTop="62dp"
+                android:scaleX="-1"
+                app:srcCompat="@mipmap/jejak_foreground" />
+
+            <ImageView
+                android:id="@+id/bendera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="108dp"
+                app:srcCompat="@mipmap/bendera_foreground" />
+
+            <ImageView
+                android:id="@+id/jejak3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="188dp"
+                android:layout_marginTop="159dp"
+                app:srcCompat="@mipmap/jejak_foreground" />
+
+            <ImageView
+                android:id="@+id/pos4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="119dp"
+                app:srcCompat="@mipmap/rumah_foreground" />
+
+            <ImageView
+                android:id="@+id/jejak2"
+                android:layout_width="131dp"
+                android:layout_height="118dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="113dp"
+                android:layout_marginTop="256dp"
+                android:scaleX="-1"
+                app:srcCompat="@mipmap/jejak_foreground" />
+
+            <ImageView
+                android:id="@+id/pos3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="215dp"
+                android:layout_marginEnd="72dp"
+                app:srcCompat="@mipmap/rumah_foreground" />
+
+            <ImageView
+                android:id="@+id/jejak1"
+                android:layout_width="129dp"
+                android:layout_height="147dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="105dp"
+                android:layout_marginBottom="159dp"
+                android:rotation="15"
+                app:srcCompat="@mipmap/jejak_foreground" />
+
+            <ImageView
+                android:id="@+id/pos2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="329dp"
+                app:srcCompat="@mipmap/rumah_foreground" />
+
+            <ImageView
+                android:id="@+id/pos1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="261dp"
+                android:layout_marginTop="406dp"
+                app:srcCompat="@mipmap/rumah_foreground" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/header_background"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="235dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="1dp">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="37dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@mipmap/left_arrow_foreground" />
+
+                <TextView
+                    android:id="@+id/permaian"
+                    android:layout_width="124dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="11dp"
+                    android:text="Permainan"
+                    android:textColor="#f2f2f2"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"/>
+            </FrameLayout>
+
+        </RelativeLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

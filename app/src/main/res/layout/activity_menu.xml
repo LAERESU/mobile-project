@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F0E5"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BEJARAH"
+        android:textSize="45sp"
+        android:textColor="#6D2932"
+        android:fontFamily="sans-serif-black"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- BELAJAR Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@drawable/belajar_image"
+            android:scaleType="centerCrop" />s
+        <Button
+            android:id="@+id/btnBelajar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:text="BELAJAR"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- GAME Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@drawable/game_image"
+            android:scaleType="centerCrop" />
+        <Button
+            android:id="@+id/btnGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:text="GAME"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- LATIHAN Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@drawable/latihan_image"
+            android:scaleType="centerCrop" />
+        <Button
+            android:id="@+id/btnLatihan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:text="LATIHAN"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            android:padding="8dp" />
+    </LinearLayout>
+</LinearLayout>
