@@ -7,15 +7,41 @@
     android:fitsSystemWindows="true"
     android:background="#FAF8F5">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- Custom Header -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#8B0000"
-        app:title="Belajar (Audio)"
-        app:titleTextColor="@android:color/white"
-        app:navigationIcon="@drawable/ic_back_arrow" />
+        android:layout_height="48dp"
+        android:background="#8B0000">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back_arrow"
+                android:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Belajar (Audio)"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Konten ScrollView -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -66,6 +92,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Audio Control -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,14 +106,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp" />
+
                 <Button
                     android:id="@+id/btnPlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Play Audio"
-                    android:layout_marginStart="8dp"/>
+                    android:layout_marginStart="8dp" />
             </LinearLayout>
 
+            <!-- Cerita -->
             <TextView
                 android:id="@+id/tvCerita"
                 android:layout_width="match_parent"
