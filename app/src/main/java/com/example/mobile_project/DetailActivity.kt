@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.mobile_project.R
 
 class DetailActivity : AppCompatActivity() {
 
@@ -27,13 +28,8 @@ class DetailActivity : AppCompatActivity() {
         val tvNama = findViewById<TextView>(R.id.tvNama)
         val tvDeskripsi = findViewById<TextView>(R.id.tvDeskripsi)
         val tvCerita = findViewById<TextView>(R.id.tvCerita)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         val btnPlay = findViewById<Button>(R.id.btnPlay)
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
-
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toolbar.setNavigationOnClickListener { finish() }
 
         imgTokoh.setImageResource(gambarResId)
         tvNama.text = nama
