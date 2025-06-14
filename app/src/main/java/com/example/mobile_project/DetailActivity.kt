@@ -1,4 +1,4 @@
-package psti.unram.tubesapp
+package com.example.mobile_project
 
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import com.example.mobile_project.R
 
 class DetailActivity : AppCompatActivity() {
@@ -54,9 +53,10 @@ class DetailActivity : AppCompatActivity() {
 
         btnPlay.setOnClickListener {
             if (mediaPlayer == null) {
-                mediaPlayer = MediaPlayer.create(this, audioResId)
-                seekBar.max = mediaPlayer!!.duration
-                mediaPlayer?.start()
+                mediaPlayer = MediaPlayer.create(this, audioResId)?.apply {
+                    seekBar.max = duration
+                    start()
+                }
                 btnPlay.text = "Stop Audio"
                 startSeekBarUpdate(seekBar)
             } else {
@@ -74,7 +74,7 @@ class DetailActivity : AppCompatActivity() {
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (fromUser) {
+                if (fromUser && mediaPlayer != null) {
                     mediaPlayer?.seekTo(progress)
                 }
             }
@@ -87,9 +87,11 @@ class DetailActivity : AppCompatActivity() {
     private fun startSeekBarUpdate(seekBar: SeekBar) {
         updateSeekBar = object : Runnable {
             override fun run() {
-                if (mediaPlayer != null) {
-                    seekBar.progress = mediaPlayer!!.currentPosition
-                    handler.postDelayed(this, 500)
+                mediaPlayer?.let {
+                    seekBar.progress = it.currentPosition
+                    if (it.isPlaying) {
+                        handler.postDelayed(this, 500)
+                    }
                 }
             }
         }
@@ -101,12 +103,19 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun getDetailFromRaw(resId: Int): String {
-        return resources.openRawResource(resId).bufferedReader().use { it.readText() }
+        return try {
+            resources.openRawResource(resId).bufferedReader().use { it.readText() }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            "Detail tidak tersedia"
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer?.release()
+        mediaPlayer?.apply {
+            release()
+        }
         mediaPlayer = null
         stopSeekBarUpdate()
     }
