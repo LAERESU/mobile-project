@@ -11,6 +11,33 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".BiodataPage"
+            android:exported="false" />
+        <activity
+            android:name=".PembahasanPage"
+            android:exported="false" />
+        <activity
+            android:name=".HasilPage"
+            android:exported="false" />
+        <activity
+            android:name=".SoalPage"
+            android:exported="false" />
+        <activity
+            android:name=".LatihanPage"
+            android:exported="false" />
+        <activity
+            android:name=".GamePage"
+            android:exported="false" />
+        <activity
+            android:name=".BelajarPage"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LandingPage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
