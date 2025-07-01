@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1034714054527",
+    "firebase_url": "https://bejarah-7369e-default-rtdb.firebaseio.com",
+    "project_id": "bejarah-7369e",
+    "storage_bucket": "bejarah-7369e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034714054527:android:47bdaa3d85ee4b6291a44a",
+        "android_client_info": {
+          "package_name": "com.example.androidproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALLWm1gE2mn4X-qW4e3rG59gCcTBxK2TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034714054527:android:fdb12dbcfca9308191a44a",
+        "android_client_info": {
+          "package_name": "com.example.mobile_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALLWm1gE2mn4X-qW4e3rG59gCcTBxK2TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

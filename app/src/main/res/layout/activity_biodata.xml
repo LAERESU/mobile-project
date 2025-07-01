@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F0E9"
+    android:orientation="vertical">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#792C36"
+        android:paddingTop="50dp"
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Form Biodata Diri"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- SCROLLABLE FORM -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- CARD FORM -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#792C36"
+                android:padding="24dp"
+                android:elevation="4dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="60dp"
+                android:clipToPadding="false"
+                android:gravity="center">
+
+                <!-- JUDUL -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Biodata Diri"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- INPUT FIELD -->
+                <!-- NAMA LENGKAP -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lengkap"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etNamaLengkap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3F1E24"
+                    android:textColor="#FFFFFF"
+                    android:hint="isikan nama lengkapmu...."
+                    android:padding="12dp"
+                    android:textColorHint="#AAFFFFFF"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- NAMA PANGGILAN -->
+                <TextView
+                    android:id="@+id/nisnInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NISN"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etNisn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3F1E24"
+                    android:textColor="#FFFFFF"
+                    android:hint="isikan NISN..."
+                    android:padding="12dp"
+                    android:textColorHint="#AAFFFFFF"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- NAMA SEKOLAH -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Sekolah"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etNamaSekolah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3F1E24"
+                    android:textColor="#FFFFFF"
+                    android:hint="isikan nama sekolah..."
+                    android:padding="12dp"
+                    android:textColorHint="#AAFFFFFF"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- KELAS -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kelas Berapa?"
+                    android:textColor="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etKelas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3F1E24"
+                    android:textColor="#FFFFFF"
+                    android:hint="Kelas berapa sekarang..."
+                    android:padding="12dp"
+                    android:textColorHint="#AAFFFFFF"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- BUTTON -->
+                <Button
+                    android:id="@+id/btnKirim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kirim"
+                    android:textStyle="bold"
+                    android:background="#2C1218"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

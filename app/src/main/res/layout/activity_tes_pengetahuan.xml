@@ -70,51 +70,14 @@
                     android:contentDescription="Ilustrasi latihan" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Tombol Latihan -->
-            <Button
-                android:id="@+id/btnLatihan1"
+            <!-- Container Tombol Latihan -->
+            <LinearLayout
+                android:id="@+id/latihanContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/btn_latihan_shape"
-                android:text="Latihan 1"
-                android:textColor="#FFFFFF" />
+                android:orientation="vertical"
+                android:layout_marginTop="24dp" />
 
-            <Button
-                android:id="@+id/btnLatihan2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/btn_latihan_shape"
-                android:text="Latihan 2"
-                android:textColor="#FFFFFF" />
-
-            <Button
-                android:id="@+id/btnLatihan3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/btn_latihan_shape"
-                android:text="Latihan 3"
-                android:textColor="#FFFFFF" />
-
-            <Button
-                android:id="@+id/btnLatihan4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/btn_latihan_shape"
-                android:text="Latihan 4"
-                android:textColor="#FFFFFF" />
-
-            <Button
-                android:id="@+id/btnLatihan5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/btn_latihan_shape"
-                android:text="Latihan 5"
-                android:textColor="#FFFFFF" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
