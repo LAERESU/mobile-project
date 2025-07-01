@@ -1,124 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="267dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="78dp"
-            android:layout_marginTop="164dp"
-            android:layout_marginEnd="78dp"
-            android:layout_marginBottom="300dp"
-            android:background="@drawable/pertanyaan_background">
+            android:layout_height="wrap_content"
+            android:background="@drawable/pertanyaan_background"
+            android:padding="26dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/pos1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:fontFamily="sans-serif"
                     android:text="POS 2"
                     android:textAlignment="center"
                     android:textColor="#f2f2f2"
-                    android:textSize="40dp"
+                    android:textSize="40sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/pertanyaan1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="13dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="sans-serif"
                     android:text="Siapa Presiden Indonesia pertama?"
-                    android:textAlignment="inherit"
-                    android:textColor="#f2f2f2"
-                    android:textSize="18dp"
-                    android:textStyle="normal" />
+                    android:textColor="#DEF2F2F2"
+                    android:textSize="18sp" />
 
+                <!-- Pilihan A -->
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="33dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/pilihan_background">
 
                     <TextView
                         android:id="@+id/pilihan1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:fontFamily="sans-serif"
                         android:text="a. Ir. Soekarno"
-                        android:textAlignment="inherit"
                         android:textColor="#f2f2f2"
-                        android:textSize="18dp"
-                        android:textStyle="normal" />
+                        android:textSize="18sp" />
                 </FrameLayout>
 
+                <!-- Pilihan B -->
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="33dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/pilihan_background">
 
                     <TextView
                         android:id="@+id/pilihan2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
+                        android:padding="10dp"
                         android:fontFamily="sans-serif"
                         android:text="b. Ir. Joko Widodo"
-                        android:textAlignment="inherit"
                         android:textColor="#f2f2f2"
-                        android:textSize="18dp" />
-
+                        android:textSize="18sp" />
                 </FrameLayout>
 
+                <!-- Pilihan C -->
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="33dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/pilihan_background">
 
                     <TextView
                         android:id="@+id/pilihan3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="3dp"
+                        android:padding="10dp"
                         android:fontFamily="sans-serif"
                         android:text="c. Drs. Mohammad Hatta"
-                        android:textAlignment="inherit"
                         android:textColor="#f2f2f2"
-                        android:textSize="18dp" />
+                        android:textSize="18sp" />
                 </FrameLayout>
+
             </LinearLayout>
         </FrameLayout>
-    </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
