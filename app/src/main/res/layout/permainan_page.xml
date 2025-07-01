@@ -1,18 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
+
+    <!-- Background -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="691dp"
-        android:layout_height="1043dp"
-        app:srcCompat="@mipmap/rumput"
-        tools:layout_editor_absoluteX="-144dp"
-        tools:layout_editor_absoluteY="-132dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        app:srcCompat="@mipmap/rumput" />
 
+    <!-- Custom Header -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#8B0000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back_arrow"
+                android:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Permainan"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Main Game Content -->
     <FrameLayout
         android:id="@+id/frameLayout4"
         android:layout_width="416dp"
@@ -33,7 +72,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="51dp"
-                android:layout_marginTop="46dp"
+                android:layout_marginTop="6dp"
                 android:text="Level 1"
                 android:textSize="28dp"
                 android:textStyle="bold" />
@@ -142,51 +181,6 @@
                 app:srcCompat="@mipmap/rumah_foreground" />
 
         </RelativeLayout>
-
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/frameLayout3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/header_background"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <FrameLayout
-                android:layout_width="235dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="1dp">
-
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="37dp"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@mipmap/left_arrow_foreground" />
-
-                <TextView
-                    android:id="@+id/permaian"
-                    android:layout_width="124dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginBottom="11dp"
-                    android:text="Permainan"
-                    android:textColor="#f2f2f2"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif"/>
-            </FrameLayout>
-
-        </RelativeLayout>
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

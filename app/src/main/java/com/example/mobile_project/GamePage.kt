@@ -12,7 +12,7 @@ class GamePage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.permainan_page)
 
-        val backButton = findViewById<ImageView>(R.id.imageView11)
+        val backButton = findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener {
             finish()
         }
