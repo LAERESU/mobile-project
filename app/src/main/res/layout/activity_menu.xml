@@ -8,7 +8,6 @@
     android:background="#F8F0E5"
     android:padding="16dp">
 
-    <!-- Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +18,6 @@
         android:layout_gravity="center"
         android:layout_marginBottom="24dp"/>
 
-    <!-- BELAJAR Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +41,6 @@
             android:padding="8dp" />
     </LinearLayout>
 
-    <!-- GAME Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,7 +63,6 @@
             android:padding="8dp" />
     </LinearLayout>
 
-    <!-- LATIHAN Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

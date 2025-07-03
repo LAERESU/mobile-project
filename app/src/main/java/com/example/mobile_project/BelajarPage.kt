@@ -20,11 +20,9 @@ class BelajarPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_belajar)
 
-        // Inisialisasi view
         rvPahlawan = findViewById(R.id.rvPahlawan)
         backButton = findViewById(R.id.backButton)
 
-        // Ambil data dari SQLite
         dbHelper = DatabaseHelper(this)
         val listPahlawan = dbHelper.getAllPahlawan()
 
@@ -32,7 +30,6 @@ class BelajarPage : AppCompatActivity() {
             Toast.makeText(this, "Data pahlawan kosong", Toast.LENGTH_SHORT).show()
         }
 
-        // Set layout manager dan adapter recycler view
         rvPahlawan.layoutManager = LinearLayoutManager(this)
         rvPahlawan.adapter = PahlawanAdapter(listPahlawan) { selectedPahlawan ->
             val intent = Intent(this, DetailActivity::class.java)
@@ -40,7 +37,6 @@ class BelajarPage : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Tombol back
         backButton.setOnClickListener {
             finish()
         }

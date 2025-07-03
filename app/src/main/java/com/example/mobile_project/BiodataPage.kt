@@ -19,14 +19,12 @@ class BiodataPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_biodata)
 
-        // Inisialisasi view
         etNamaLengkap = findViewById(R.id.etNamaLengkap)
         etNISN = findViewById(R.id.etNisn)
         etNamaSekolah = findViewById(R.id.etNamaSekolah)
         etKelas = findViewById(R.id.etKelas)
         btnKirim = findViewById(R.id.btnKirim)
 
-        // Firebase ref
         val database = FirebaseDatabase.getInstance()
         val userRef = database.getReference("users")
 

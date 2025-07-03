@@ -7,7 +7,6 @@
     android:background="#FFFFFF"
     android:fitsSystemWindows="true">
 
-    <!-- Custom Header -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -41,7 +40,6 @@
         </LinearLayout>
     </FrameLayout>
 
-    <!-- Konten Scrollable -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -53,7 +51,6 @@
             android:paddingHorizontal="24dp"
             android:paddingVertical="16dp">
 
-            <!-- Ilustrasi -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -70,7 +67,6 @@
                     android:contentDescription="Ilustrasi latihan" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Container Tombol Latihan -->
             <LinearLayout
                 android:id="@+id/latihanContainer"
                 android:layout_width="match_parent"

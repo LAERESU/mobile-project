@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         val dbHelper = DatabaseHelper(this)
         val seeder = InitialDataSeeder(dbHelper)
 
-        // Cek dan seed data hanya jika belum ada kuis
         if (dbHelper.getAllKuis().isEmpty()) {
             Log.d("MainActivity", "Database kosong, melakukan seed data awal...")
             seeder.seed()
@@ -30,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        // Cek apakah user sudah mengisi biodata
         val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
         val nama = sharedPref.getString("nama_lengkap", null)
 
@@ -42,6 +40,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, BiodataPage::class.java))
         }
 
-        finish() // Tutup MainActivity agar tidak bisa kembali ke sini
+        finish()
     }
 }

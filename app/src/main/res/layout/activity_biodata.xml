@@ -6,7 +6,6 @@
     android:background="#F5F0E9"
     android:orientation="vertical">
 
-    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +25,6 @@
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 
-    <!-- SCROLLABLE FORM -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -62,8 +60,6 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="24dp"/>
 
-                <!-- INPUT FIELD -->
-                <!-- NAMA LENGKAP -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,7 +96,6 @@
                     android:textColorHint="#AAFFFFFF"
                     android:layout_marginBottom="16dp"/>
 
-                <!-- NAMA SEKOLAH -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -136,7 +131,6 @@
                     android:textColorHint="#AAFFFFFF"
                     android:layout_marginBottom="24dp"/>
 
-                <!-- BUTTON -->
                 <Button
                     android:id="@+id/btnKirim"
                     android:layout_width="match_parent"

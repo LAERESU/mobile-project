@@ -19,7 +19,6 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        // Ambil ID dari intent
         val idPahlawan = intent.getIntExtra("idPahlawan", -1)
         if (idPahlawan == -1) {
             Toast.makeText(this, "ID pahlawan tidak valid", Toast.LENGTH_SHORT).show()
@@ -74,7 +73,6 @@ class DetailActivity : AppCompatActivity() {
         }
 
 
-        // Play audio
         btnPlay.setOnClickListener {
             if (mediaPlayer == null) {
                 mediaPlayer = MediaPlayer.create(this, resAudioId)?.apply {
@@ -96,7 +94,6 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-        // SeekBar listener
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser && mediaPlayer != null) {

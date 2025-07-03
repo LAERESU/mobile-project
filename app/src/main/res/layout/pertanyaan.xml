@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/pertanyaan_background"
             android:padding="26dp">
@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- TextView POS -->
                 <TextView
                     android:id="@+id/pos1"
                     android:layout_width="match_parent"
@@ -44,7 +45,6 @@
                     android:textColor="#DEF2F2F2"
                     android:textSize="18sp" />
 
-                <!-- Pilihan A -->
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -62,7 +62,6 @@
                         android:textSize="18sp" />
                 </FrameLayout>
 
-                <!-- Pilihan B -->
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -80,7 +79,6 @@
                         android:textSize="18sp" />
                 </FrameLayout>
 
-                <!-- Pilihan C -->
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

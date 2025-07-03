@@ -21,7 +21,6 @@ class LatihanPage : AppCompatActivity() {
         val dbHelper = DatabaseHelper(this)
         val seeder = InitialDataSeeder(dbHelper)
 
-        // Lakukan seed jika belum ada kuis
         if (dbHelper.getAllKuis().isEmpty()) {
             Log.d("LatihanPage", "Database kuis kosong. Melakukan seeding awal.")
             seeder.seed()

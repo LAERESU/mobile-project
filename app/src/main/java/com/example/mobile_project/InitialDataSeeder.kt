@@ -10,7 +10,6 @@ class InitialDataSeeder(private val dbHelper: DatabaseHelper) {
     fun seed() {
         val db = dbHelper.writableDatabase
 
-        // Fungsi bantu menambahkan soal ke tabel soal
         fun addSoal(
             isiSoal: String,
             idKuis: Long,

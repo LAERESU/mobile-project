@@ -15,7 +15,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val DATABASE_NAME = "mobile_project.db"
         private const val DATABASE_VERSION = 4
 
-        // Table & Column Names
         const val TABLE_PAHLAWAN = "pahlawan"
         const val COLUMN_PAHLAWAN_ID = "id_pahlawan"
         const val COLUMN_PAHLAWAN_NAMA = "nama_pahlawan"

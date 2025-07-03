@@ -6,7 +6,6 @@
     android:background="#F8F0E5"
     android:fitsSystemWindows="true">
 
-    <!-- Header -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -39,7 +38,6 @@
         </LinearLayout>
     </FrameLayout>
 
-    <!-- Konten -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -50,7 +48,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Card -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +56,6 @@
                 android:elevation="4dp"
                 android:padding="20dp">
 
-                <!-- Info User -->
                 <TextView
                     android:id="@+id/userInfoTextView"
                     android:layout_width="match_parent"
@@ -71,7 +67,6 @@
                     android:textStyle="bold"
                     android:gravity="center" />
 
-                <!-- Skor -->
                 <TextView
                     android:id="@+id/skorTextView"
                     android:layout_width="match_parent"
@@ -83,7 +78,6 @@
                     android:gravity="center"
                     android:layout_marginBottom="8dp" />
 
-                <!-- Status Lulus -->
                 <TextView
                     android:id="@+id/statusLulusTextView"
                     android:layout_width="match_parent"
@@ -95,7 +89,6 @@
                     android:gravity="center"
                     android:layout_marginBottom="16dp" />
 
-                <!-- Gambar -->
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -104,7 +97,6 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_launcher_foreground" />
 
-                <!-- Benar -->
                 <Button
                     android:id="@+id/btnBenar"
                     android:layout_width="match_parent"
@@ -114,7 +106,6 @@
                     android:text="Benar : 0"
                     android:textColor="@android:color/white" />
 
-                <!-- Salah -->
                 <Button
                     android:id="@+id/btnSalah"
                     android:layout_width="match_parent"
@@ -124,7 +115,6 @@
                     android:text="Salah : 0"
                     android:textColor="@android:color/white" />
 
-                <!-- Kembali -->
                 <Button
                     android:id="@+id/btnKembali"
                     android:layout_width="match_parent"
