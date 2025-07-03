@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.mobile_project.model.Kuis
+import com.example.mobile_project.model.Pahlawan
 import com.example.mobile_project.model.Soal
 import org.json.JSONArray
 
@@ -21,6 +22,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         const val COLUMN_PAHLAWAN_TEMPAT_LAHIR = "tempat_lahir"
         const val COLUMN_PAHLAWAN_TANGGAL_LAHIR = "tanggal_lahir"
         const val COLUMN_PAHLAWAN_JULUKAN = "julukan"
+        const val COLUMN_PAHLAWAN_TOKOH = "tokoh"
+        const val COLUMN_PAHLAWAN_FOTO = "foto"
+        const val COLUMN_PAHLAWAN_CERITA = "cerita"
+        const val COLUMN_PAHLAWAN_AUDIO = "audio"
+        const val COLUMN_PAHLAWAN_IS_LEARNED = "is_learned"
 
         const val TABLE_PERISTIWA = "peristiwa"
         const val COLUMN_PERISTIWA_ID = "id_peristiwa"
@@ -65,7 +71,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 $COLUMN_PAHLAWAN_NAMA TEXT,
                 $COLUMN_PAHLAWAN_TEMPAT_LAHIR TEXT,
                 $COLUMN_PAHLAWAN_TANGGAL_LAHIR TEXT,
-                $COLUMN_PAHLAWAN_JULUKAN TEXT
+                $COLUMN_PAHLAWAN_JULUKAN TEXT,
+                $COLUMN_PAHLAWAN_TOKOH TEXT,
+                $COLUMN_PAHLAWAN_FOTO TEXT,
+                $COLUMN_PAHLAWAN_CERITA TEXT,
+                $COLUMN_PAHLAWAN_AUDIO TEXT,
+                $COLUMN_PAHLAWAN_IS_LEARNED INTEGER
             )
         """.trimIndent())
 
@@ -186,4 +197,85 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return list
     }
+
+    fun insertPahlawan(pahlawan: Pahlawan): Long {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_PAHLAWAN_NAMA, pahlawan.namaPahlawan)
+            put(COLUMN_PAHLAWAN_TEMPAT_LAHIR, pahlawan.tempatLahir)
+            put(COLUMN_PAHLAWAN_TANGGAL_LAHIR, pahlawan.tanggalLahir)
+            put(COLUMN_PAHLAWAN_JULUKAN, pahlawan.julukan)
+            put(COLUMN_PAHLAWAN_TOKOH, pahlawan.tokoh)
+            put(COLUMN_PAHLAWAN_FOTO, pahlawan.foto)
+            put(COLUMN_PAHLAWAN_CERITA, pahlawan.cerita)
+            put(COLUMN_PAHLAWAN_AUDIO, pahlawan.audio)
+            put(COLUMN_PAHLAWAN_IS_LEARNED, pahlawan.isLearned)
+        }
+        return db.insert(TABLE_PAHLAWAN, null, values).also { db.close() }
+
+
+    }
+
+    fun getAllPahlawan(): List<Pahlawan> {
+        val list = mutableListOf<Pahlawan>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_PAHLAWAN", null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val pahlawan = Pahlawan(
+                    cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_NAMA)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_TEMPAT_LAHIR)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_TANGGAL_LAHIR)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_JULUKAN)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_TOKOH)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_FOTO)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_CERITA)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_AUDIO)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_IS_LEARNED))
+                )
+                list.add(pahlawan)
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+        return list
+    }
+
+
+
+    fun getPahlawanById(id: Int): Pahlawan? {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_PAHLAWAN WHERE $COLUMN_PAHLAWAN_ID = ?", arrayOf(id.toString()))
+
+        if (cursor.moveToFirst()) {
+            val nama = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_NAMA))
+            val tempatLahir = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_TEMPAT_LAHIR))
+            val tanggalLahir = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_TANGGAL_LAHIR))
+            val julukan = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_JULUKAN))
+            val tokoh = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_TOKOH))
+            val foto = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_FOTO))
+            val cerita = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_CERITA))
+            val audio = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_AUDIO))
+            val isLearned = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_PAHLAWAN_IS_LEARNED))
+            cursor.close()
+            db.close()
+            return Pahlawan(id, nama, tempatLahir, tanggalLahir, julukan, tokoh, foto, cerita, audio, isLearned)
+        } else {
+            cursor.close()
+            db.close()
+            return null
+        }
+    }
+    fun updatePahlawanLearned(id: Int) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put("isLearned", 1)
+        }
+        db.update("pahlawan", values, "idPahlawan=?", arrayOf(id.toString()))
+    }
+
+
 }

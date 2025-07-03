@@ -22,6 +22,14 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity", "Data kuis sudah ada, tidak perlu seeding ulang.")
         }
 
+        if (dbHelper.getAllPahlawan().isEmpty()) {
+            Log.d("MainActivity", "Database pahlawan kosong, melakukan seed data awal...")
+            seeder.seedPahlawan()
+        } else {
+            Log.d("MainActivity", "Data pahlawan sudah ada, tidak perlu seeding ulang.")
+        }
+
+
         // Cek apakah user sudah mengisi biodata
         val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
         val nama = sharedPref.getString("nama_lengkap", null)

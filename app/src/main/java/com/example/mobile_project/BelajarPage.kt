@@ -2,23 +2,47 @@ package com.example.mobile_project
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mobile_project.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mobile_project.adapter.PahlawanAdapter
+import com.example.mobile_project.model.Pahlawan
 
 class BelajarPage : AppCompatActivity() {
+
+    private lateinit var rvPahlawan: RecyclerView
+    private lateinit var dbHelper: DatabaseHelper
+    private lateinit var backButton: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.item_tokoh)
+        setContentView(R.layout.activity_belajar)
 
-        // Tombol back (ImageView) untuk kembali
-        val backButton = findViewById<android.widget.ImageView>(R.id.backButton)
+        // Inisialisasi view
+        rvPahlawan = findViewById(R.id.rvPahlawan)
+        backButton = findViewById(R.id.backButton)
+
+        // Ambil data dari SQLite
+        dbHelper = DatabaseHelper(this)
+        val listPahlawan = dbHelper.getAllPahlawan()
+
+        if (listPahlawan.isEmpty()) {
+            Toast.makeText(this, "Data pahlawan kosong", Toast.LENGTH_SHORT).show()
+        }
+
+        // Set layout manager dan adapter recycler view
+        rvPahlawan.layoutManager = LinearLayoutManager(this)
+        rvPahlawan.adapter = PahlawanAdapter(listPahlawan) { selectedPahlawan ->
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("idPahlawan", selectedPahlawan.idPahlawan)
+            startActivity(intent)
+        }
+
+        // Tombol back
         backButton.setOnClickListener {
             finish()
-        }
-        val cardBox1 = findViewById<android.widget.LinearLayout>(R.id.cardBox1) // Pastikan ID ini ada di layout yang di-set di setContentView
-        cardBox1.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            startActivity(intent)
         }
     }
 }

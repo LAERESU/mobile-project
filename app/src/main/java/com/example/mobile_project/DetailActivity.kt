@@ -6,22 +6,35 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mobile_project.R
+import com.example.mobile_project.model.Pahlawan
 
 class DetailActivity : AppCompatActivity() {
 
     private var mediaPlayer: MediaPlayer? = null
-    private var isPlaying = false
     private lateinit var handler: Handler
     private var updateSeekBar: Runnable? = null
+    private lateinit var dbHelper: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val nama = intent.getStringExtra("nama") ?: ""
-        val deskripsi = intent.getStringExtra("deskripsi") ?: ""
-        val gambarResId = intent.getIntExtra("gambar", 0)
+        // Ambil ID dari intent
+        val idPahlawan = intent.getIntExtra("idPahlawan", -1)
+        if (idPahlawan == -1) {
+            Toast.makeText(this, "ID pahlawan tidak valid", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
+        dbHelper = DatabaseHelper(this)
+        val pahlawan: Pahlawan? = dbHelper.getPahlawanById(idPahlawan)
+
+        if (pahlawan == null) {
+            Toast.makeText(this, "Data pahlawan tidak ditemukan", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         val imgTokoh = findViewById<ImageView>(R.id.imgTokoh)
         val tvNama = findViewById<TextView>(R.id.tvNama)
@@ -30,30 +43,41 @@ class DetailActivity : AppCompatActivity() {
         val btnPlay = findViewById<Button>(R.id.btnPlay)
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
 
-        imgTokoh.setImageResource(gambarResId)
-        tvNama.text = nama
-        tvDeskripsi.text = deskripsi
+        // Set data ke UI
+        tvNama.text = pahlawan.namaPahlawan
+        tvDeskripsi.text = "${pahlawan.julukan}\nLahir di ${pahlawan.tempatLahir} pada ${pahlawan.tanggalLahir}"
 
-        val textResId = when (nama) {
-            "Ir. Soekarno" -> R.raw.soekarno
-            "R.A Kartini" -> R.raw.kartini
-            "Drs. Mohammad Hatta" -> R.raw.hatta
-            else -> R.raw.soekarno
+        // Ambil ID sumber daya dari nama
+        var resFotoId = resources.getIdentifier(pahlawan.foto, "drawable", packageName)
+        if (resFotoId == 0) {
+            resFotoId = resources.getIdentifier("soekarno", "drawable", packageName)
         }
-        tvCerita.text = getDetailFromRaw(textResId)
+        var resCeritaId = resources.getIdentifier(pahlawan.cerita, "raw", packageName)
+        if (resCeritaId == 0) {
+            resCeritaId = resources.getIdentifier("soekarno", "raw", packageName)
+        }
+        var resAudioId = resources.getIdentifier(pahlawan.audio, "raw", packageName)
+        if (resAudioId == 0) {
+            resAudioId = resources.getIdentifier("soekarno_audio", "raw", packageName)
+        }
 
-        val audioResId = when (nama) {
-            "Ir. Soekarno" -> R.raw.soekar
-            "R.A Kartini" -> R.raw.kartini_audio
-            "Drs. Mohammad Hatta" -> R.raw.hatta_audio
-            else -> R.raw.soekar
-        }
+        imgTokoh.setImageResource(resFotoId)
+        tvCerita.text = getDetailFromRaw(resCeritaId)
 
         handler = Handler(Looper.getMainLooper())
 
+        val btnSelesai = findViewById<Button>(R.id.btnSelesaiBelajar)
+        btnSelesai.setOnClickListener {
+            dbHelper.updatePahlawanLearned(pahlawan.idPahlawan)
+            Toast.makeText(this, "Berhasil ditandai sebagai sudah belajar", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
+
+        // Play audio
         btnPlay.setOnClickListener {
             if (mediaPlayer == null) {
-                mediaPlayer = MediaPlayer.create(this, audioResId)?.apply {
+                mediaPlayer = MediaPlayer.create(this, resAudioId)?.apply {
                     seekBar.max = duration
                     start()
                 }
@@ -72,6 +96,7 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
+        // SeekBar listener
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser && mediaPlayer != null) {
@@ -104,6 +129,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun getDetailFromRaw(resId: Int): String {
         return try {
+            if (resId == 0) return "Cerita tidak tersedia"
             resources.openRawResource(resId).bufferedReader().use { it.readText() }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -113,9 +139,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer?.apply {
-            release()
-        }
+        mediaPlayer?.release()
         mediaPlayer = null
         stopSeekBarUpdate()
     }

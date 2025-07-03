@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:background="#FAF8F5">
 
-    <!-- Custom Header -->
+    <!-- 🔴 HEADER -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -41,24 +41,25 @@
         </LinearLayout>
     </FrameLayout>
 
-    <!-- Konten ScrollView -->
+    <!-- 🔵 KONTEN -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="vertical">
 
-            <!-- Kartu Tokoh -->
+            <!-- 🟤 Kartu Tokoh -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="8dp">
+                android:layout_marginBottom="16dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:backgroundTint="#FFFFFF">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -69,8 +70,10 @@
 
                     <ImageView
                         android:id="@+id/imgTokoh"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginBottom="12dp"
                         android:contentDescription="Foto Tokoh" />
 
                     <TextView
@@ -79,51 +82,70 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="#800000"
-                        android:layout_marginTop="8dp" />
+                        android:textColor="#8B0000"
+                        android:layout_marginBottom="4dp" />
 
                     <TextView
                         android:id="@+id/tvDeskripsi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
+                        android:textColor="#444444"
+                        android:textAlignment="center"
+                        android:lineSpacingExtra="2dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Audio Control -->
+            <!-- 🎵 Audio Control -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="24dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
 
                 <SeekBar
                     android:id="@+id/seekBar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp" />
+                    android:layout_marginEnd="12dp" />
 
                 <Button
                     android:id="@+id/btnPlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Play Audio"
-                    android:layout_marginStart="8dp" />
+                    android:backgroundTint="#8B0000"
+                    android:textColor="@android:color/white" />
             </LinearLayout>
 
-            <!-- Cerita -->
+            <!-- 📖 Cerita -->
             <TextView
                 android:id="@+id/tvCerita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textColor="#333333"
-                android:lineSpacingExtra="6dp" />
+                android:lineSpacingExtra="6dp"
+                android:background="#FFF8F0"
+                android:padding="12dp"
+                android:layout_marginBottom="24dp"
+                android:elevation="2dp"
+                android:backgroundTint="#FFF8F0" />
+
+            <!-- ✅ Tombol Selesai Belajar -->
+            <Button
+                android:id="@+id/btnSelesaiBelajar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selesai Belajar"
+                android:textAllCaps="false"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#008000"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
